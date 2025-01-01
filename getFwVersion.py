@@ -33,5 +33,13 @@ def main():
         send_command(bus, DEVICE_ADDRESS, 0x44, [0x03, 0x00])
         response = read_response(bus, DEVICE_ADDRESS, 0x44, 4)
 
+        # Read Firmware Version
+        send_command(bus, DEVICE_ADDRESS, 0x44, [0x02, 0x00])
+        response = read_response(bus, DEVICE_ADDRESS, 0x44, 4)
+
+        # If checksum
+        send_command(bus, DEVICE_ADDRESS, 0x44, [0x04, 0x00])
+        response = read_response(bus, DEVICE_ADDRESS, 0x44, 4)
+
 if __name__ == "__main__":
     main()
