@@ -3,7 +3,7 @@ import time
 
 # Config
 I2C_BUS = 1
-DEVICE_ADDRESS = 0x0B
+DEVICE_ADDRESS = 0x09
 
 def send_command(bus, device_address, command, data=[]):
     try:
