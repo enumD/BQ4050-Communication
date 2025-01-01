@@ -24,13 +24,10 @@ def read_response(bus, device_address, command, length):
 
 def main():
     with smbus2.SMBus(I2C_BUS) as bus:
-        # Enable Firmware Control of FETs
-        send_command(bus, DEVICE_ADDRESS, 0x00, [0x00, 0x22])
-        time.sleep(1)
-
+    
         # Read Hardware Version
-        send_command(bus, DEVICE_ADDRESS, 0x00, [0x00, 0x03])
-        response = read_response(bus, DEVICE_ADDRESS, 0x06, 2)
+        send_command(bus, DEVICE_ADDRESS, 0x44, [0x00, 0x03])
+        response = read_response(bus, DEVICE_ADDRESS, 0x44, 4)
 
 if __name__ == "__main__":
     main()
