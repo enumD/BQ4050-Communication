@@ -25,7 +25,7 @@ From Ti forum https://e2e.ti.com/support/power-management-group/power-management
   i2cset -f -y 0 0xb 0x44 0x54 0x00 s  
   i2cget -f -y 0 0xb 0x44 i 7  
   7: 0x06 0x54 0x00 0x87 0x03 0x00 0x00  
-                        ^^^ still sealed  
+                          0x03 mean ^^^ still sealed  
 
 But my i2cset says wrong format, it doesn't seems the correct syntax to read more than one byte
 
