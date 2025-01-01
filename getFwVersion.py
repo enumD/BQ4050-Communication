@@ -16,11 +16,15 @@ def send_command(bus, device_address, command, data=[]):
 def read_response(bus, device_address, command, length):
     try:
         response = bus.read_i2c_block_data(device_address, command, length)
-        print(f"Response: {response}")
+        
+        hex_response = [hex(value) for value in response]
+        print(f"Response (in hex): {hex_response}")
+        
         return response
     except Exception as e:
         print(f"Error reading response: {e}")
         return None
+
 
 def main():
     with smbus2.SMBus(I2C_BUS) as bus:
