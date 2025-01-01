@@ -35,4 +35,6 @@ sleep 1
 i2cset -f -y 0 0xb 0x00 0x72 0x36 0x19 i  
 
 These seeems me corrects but before sending this i want to be able to read the status of the Bq4050.
-I'm trying to write down a simple python file that take in command byte and data bytes, calculate crc and send it to the chip; this is the purpose of dump_Bq4050.py file.
+
+I'm trying to write down a simple python file that take in command byte and data bytes, calculate crc and send it to the chip; this is the purpose of dump_Bq4050.py file.  
+But i'm not sure how to properly read from the bus: it seems that i have to send a command like "ask for read" and then perform a read from the bus..
