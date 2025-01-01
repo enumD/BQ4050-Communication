@@ -30,7 +30,7 @@ def main():
     with smbus2.SMBus(I2C_BUS) as bus:
     
         # Read Hardware Version
-        send_command(bus, 0x08, 0x44, [0x03, 0x00])
+        send_command(bus, 0x09, 0x44, [0x03, 0x00])
         response = read_response(bus, DEVICE_ADDRESS, 0x44, 4)
 
 if __name__ == "__main__":
