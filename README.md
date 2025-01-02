@@ -37,3 +37,7 @@ I've tried to see my device under i2c but nothing appear, the device is gone aft
 I've struggles two days reading [BQ30z55 Technical Manual](https://media.digikey.com/pdf/Data%20Sheets/Texas%20Instruments%20PDFs/BQ30Z50,55-R1_TechRef.pdf) and started to check the chip pinout to see if something happen, at one point a also make a small short circuit between first cell ground and first cell positive...i was like "Oh fuck! i bricked another bms fuck" but when i connected it to the raspberry...TADHAAAAA! device 0x0B found!  
 I tried to read some bytes with i2cget and everything worked fine, so decided to give a try to [DjI Firmware Tools](https://github.com/o-gs/dji-firmware-tools) where this great guy develop an incredible tools for battery management: [comm_sbs_bqctrl](https://github.com/o-gs/dji-firmware-tools/blob/master/comm_sbs_bqctrl.py).  
 With this incredible tool i managed to read my battery status, unseal the device and gain Full Access to reset the fail and error and restore the battery
+
+![Unsealing image](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/bq30z55_unsealing.png)
+
+
