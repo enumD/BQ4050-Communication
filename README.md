@@ -74,6 +74,6 @@ The command succeed, check again BQStatusBitMA and saBoooooom!
 :white_check_mark: Charging Status Bit and Gauging Status bit  
 ![Manufacture Acess OK](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingStatusit_ok.png)  
 
-:x: Manufacturing Status Bit : Not changed
+:x: Manufacturing Status Bit : Not changed, permanent failure is still active here (not anymore in Operational Status Bit)
 
 
