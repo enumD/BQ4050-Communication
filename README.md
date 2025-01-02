@@ -58,8 +58,7 @@ And i got:
 :x: Manufacturing Status Bit  
 ![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manustatusbiyt.png)  
 
-The battery status is in permanent fail, so i want to try to reset some errors and see what happen:  
-
+The battery status is in permanent fail, so i want to try to reset some errors and see what happen; to do this i run "trigger-list" to list all possible trigger options: PermanentFailDataReset seems good, let's try if it works:    
 So i run  
 >python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose trigger ManufacturerAccess.PermanentFailDataReset
 
@@ -102,5 +101,6 @@ The trigger list of available trigger:
 **ManufacturerAccess.ShutdownMode**: SHUTDOWN mode with reduced power consumption. The device can be sent to this mode before shipping. The device will wake up when a voltage is applied to PACK.  
 **ManufacturerAccess.SleepMode**: Send device to sleep if conditions are met. Some of wake conditions are: Current exceeds Sleep Current, WakeComparator trips, SafetyAlert() or PFAlert() flags are set.  
 
-Lots of command, the most interesting are: BlackBoxRecorderReset, DeviceReset, LifetimeDataReset, PermanentFailDataReset (already tried). 
+Lots of command, the most interesting are: BlackBoxRecorderReset, DeviceReset, LifetimeDataReset, PermanentFailDataReset (already tried). Lets see what the documentation says about that:  
+**Black Box Recorder Reset**: 
 
