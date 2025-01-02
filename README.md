@@ -54,5 +54,9 @@ And i got:
 ![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingstatus.png)
 ![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manustatusbiyt.png)
 
+The battery status is in permanent fail, so i want to try to reset some errors and see what happen:  
+
+So i run >python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose trigger ManufacturerAccess.PermanentFailDataReset  
+
 
 
