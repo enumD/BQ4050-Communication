@@ -74,6 +74,33 @@ The command succeed, check again BQStatusBitMA and saBoooooom!
 :white_check_mark: Charging Status Bit and Gauging Status bit  
 ![Manufacture Acess OK](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingStatusit_ok.png)  
 
-:x: Manufacturing Status Bit : Not changed, permanent failure is still active here (not anymore in Operational Status Bit)
+:x: Manufacturing Status Bit : Not changed, permanent failure is still active here (not anymore in Operational Status Bit)  
+
+The trigger list of available trigger is, i will call --explain on each:  
+**ManufacturerAccess.BlackBoxRecorder**: Enables/disables Black box recorder function. Toggle switch which allows to control the recorder for ease of manufacturing.
+**ManufacturerAccess.BlackBoxRecorderReset**: Resets the black box recorder data in data flash. Toggle switch which allows to control the Black Box Recorder data in DF for ease of manufacturing.
+**ManufacturerAccess.CALMode**
+**ManufacturerAccess.ChargeFET**
+**ManufacturerAccess.DeviceReset**
+**ManufacturerAccess.DischargeFET**
+**ManufacturerAccess.ExitCalibOutputMode**
+**ManufacturerAccess.FETControl**
+**ManufacturerAccess.Fuse**
+**ManufacturerAccess.FuseToggle**
+**ManufacturerAccess.Gauging**
+**ManufacturerAccess.LEDDisplayOn**
+**ManufacturerAccess.LEDEnable**
+**ManufacturerAccess.LEDToggle**
+**ManufacturerAccess.LifetimeDataCollection**
+**ManufacturerAccess.LifetimeDataReset**
+**ManufacturerAccess.PermanentFailDataReset**
+**ManufacturerAccess.PermanentFailure**
+**ManufacturerAccess.PreChargeFET**
+**ManufacturerAccess.ROMMode**
+**ManufacturerAccess.SHIPMode**
+**ManufacturerAccess.SealDevice**
+**ManufacturerAccess.ShutdownMode**
+**ManufacturerAccess.SleepMode**
+
 
 
