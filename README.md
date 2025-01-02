@@ -135,5 +135,15 @@ Before call the last DeviceReset i want to see the list of write to be sure to h
 **RemainingCapacityAlarm**: Low Capacity alarm threshold value. Whenever the RemainingCapacity() falls below the Low Capacity value, the Smart Battery sends AlarmWarning() messages to the SMBus Host with the REMAINING_CAPACITY_ALARM bit set. A Low Capacity value of 0 disables this alarm. Unit depends on BatteryMode()'s CAPACITY_MODE bit.   
 **RemainingTimeAlarm**: Remaining Time alarm value. Whenever the AverageTimeToEmpty() falls below the Remaining Time value, the Smart Battery sends AlarmWarning() messages to the SMBus Host with the REMAINING_TIME_ALARM bit set. A Remaining Time value of 0 effectively disables this alarm.  
 
+**Battery Mode**  
+When i read this value (16bit) it reports: 
+![Battery Mode png](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/BatteryMode_datasheet.png)  
+
+Particulary i wish to change Charge-controller_enabled (bit 8 = 1) and charger-mode (Bit 14 to 0). But before manually reset this values lets see the other things like a backup :)
+
+
+
+
+
 
 
