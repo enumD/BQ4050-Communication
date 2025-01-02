@@ -50,5 +50,9 @@ And i got:
 :white_check_mark: Permanent Fail Alert Bits: No error  
 :x: Permanent Fail Status Bits: 0x04 -> Error on [CUDEP] Copper Deposition  
 
+![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manufacturAccess.png)  
+![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingstatus.png)
+![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manustatusbiyt.png)
+
 
 
