@@ -73,7 +73,7 @@ The command succeed, check again BQStatusBitMA and saBoooooom!
 :white_check_mark: Charging Status Bit and Gauging Status bit  
 ![Manufacture Acess OK](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingStatusit_ok.png)  
 
-:x: Manufacturing Status Bit : Not changed, permanent failure is still active here (not anymore in Operational Status Bit)  
+:white_check_mark: Manufacturing Status Bit : Not changed  
 
 The trigger list of available trigger:  
 **ManufacturerAccess.BlackBoxRecorder**: Enables/disables Black box recorder function. Toggle switch which allows to control the recorder for ease of manufacturing.  
@@ -139,7 +139,12 @@ Before call the last DeviceReset i want to see the list of write to be sure to h
 When i read this value (16bit) it reports: 
 ![Battery Mode png](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/BatteryMode_datasheet.png)  
 
-Particulary i wish to change Charge-controller_enabled (bit 8 = 1) and charger-mode (Bit 14 to 0). But before manually reset this values lets see the other things like a backup :)
+Particulary i wish to change Charge-controller_enabled (bit 8 = 1) and charger-mode (Bit 14 to 0). Maybe before trying to change these values manually it's better if i try the reset and see what happen.  
+
+I don't want to send the reset device command, i cleared all the error and failure flags but cannot change: > CHARGE_CONTROLLER_ENABLED:	0=Disabled	[CC]	Battery pack's internal charge controller state  
+Even if BatteryNMode is in write list, but i don't understand how to format value data
+  
+
 
 
 
