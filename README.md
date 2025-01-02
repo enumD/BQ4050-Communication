@@ -2,7 +2,7 @@
  
 Try to talk with BQ4050 using i2c (Smbus protocol) on raspberry
 
-My HP Envy 17 2015 laptop battery is dead. I purchaused new LiPo cells and replaced the old ones. The battery is not recognized anymore and there is no output on the pins. The BMS board with the TI Bq4050 chip that take control of the charghing unit. I read a lot on the internet and find very helpful information on https://www.karosium.com/ (I'm currently waiting for the board he uses to arrive).
+My HP Envy 17 2015 laptop battery is dead. I purchaused new LiPo cells (Samsung ICR18650-26 ZLF rechargable battery 18650 Li-Ion 3.7 V 2550 mAh) same specs and replaced the old ones. The battery is not recognized anymore and there is no output on the pins. The BMS board has one TI Bq4050 chip that take control of the charghing unit. I read a lot on the internet and find very helpful information on https://www.karosium.com/ (I'm currently waiting for the board he uses to arrive).
 
 From the datasheet of the component : Supports Two-Wire SMBus v1.1 Interface. 
 I have a raspberry pi zero w with i2c and smbus support and so i tried to see if i can read and write command to the chip this way.
@@ -39,5 +39,16 @@ I tried to read some bytes with i2cget and everything worked fine, so decided to
 With this incredible tool i managed to read my battery status, unseal the device and gain Full Access to reset the fail and error and restore the battery
 
 ![Unsealing image](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/bq30z55_unsealing.png)
+
+### Reset Status process
+After unsealing the device and obtaining the full Access i started to check the errors present and try to delete them, i run  
+> python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose monitor BQStatusBitsMA
+
+And i have:  
+Safety Alert Bits: No error
+Safety Status Bits: No error
+Permanent Fail Alert Bits: No error
+Permanent Fail Status Bits: 0x04 -> Error on [CUDEP] Copper Deposition
+
 
 
