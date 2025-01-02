@@ -48,15 +48,30 @@ And i got:
 :white_check_mark: Safety Alert Bits: No error  
 :white_check_mark: Safety Status Bits: No error  
 :white_check_mark: Permanent Fail Alert Bits: No error  
-:x: Permanent Fail Status Bits: 0x04 -> Error on [CUDEP] Copper Deposition  
-
+:x: Permanent Fail Status Bits: 0x04 -> Error on [CUDEP] Copper Deposition    
+:x: Operational Status Bits: Error  
 ![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manufacturAccess.png)  
-![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingstatus.png)
-![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manustatusbiyt.png)
+
+:x: Charging Status Bit and Gauging Status bit  
+![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingstatus.png)  
+
+:x: Manufacturing Status Bit  
+![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manustatusbiyt.png)  
 
 The battery status is in permanent fail, so i want to try to reset some errors and see what happen:  
 
-So i run >python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose trigger ManufacturerAccess.PermanentFailDataReset  
+So i run  
+>python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose trigger ManufacturerAccess.PermanentFailDataReset
+
+The command succeed, check again BQStatusBitMA and saBoooooom!  
+:white_check_mark: Safety Alert Bits: No error  
+:white_check_mark: Safety Status Bits: No error  
+:white_check_mark: Permanent Fail Alert Bits: No error  
+:white_check_mark: Permanent Fail Status Bits: No Error  
+:x: Operational Status Bits: No bad error, but i think that Charging disabled is not good but maybe because is not attached to a power source?!?  ( Shows the differences before and after reset trigger command)
+![Operational Status Bit OK](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/operationalStatusBit_OK.png)  
+
+
 
 
 
