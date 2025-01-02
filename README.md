@@ -71,7 +71,9 @@ The command succeed, check again BQStatusBitMA and saBoooooom!
 :x: Operational Status Bits: No bad error, but i think that Charging disabled is not good but maybe because is not attached to a power source?!?  ( Shows the differences before and after reset trigger command)
 ![Operational Status Bit OK](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/operationalStatusBit_OK.png)  
 
+:white_check_mark: Charging Status Bit and Gauging Status bit  
+![Manufacture Acess OK](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingStatusit_ok.png)  
 
-
+:x: Manufacturing Status Bit : Not changed
 
 
