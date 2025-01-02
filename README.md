@@ -107,5 +107,33 @@ Lots of command, the most interesting are: BlackBoxRecorderReset, DeviceReset, L
 **ManufacturerAccess.LifetimeDataReset**: I will run this to separate old problems from new and to set cyclecount to zero  
 Ok lets run these commands and see what happen:  
 
+**BlackBoxRecorderReset**  
+> dario@MotorolaG10:~/dji-firmware-tools $ python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose trigger ManufacturerAccess.BlackBoxRecorderReset  
+> Opening smbus:1  
+> Importing comm_sbs_chips/BQ30z554.py  
+> Writing write_word_subcommand command at addr=0xb, cmd=0x0, type=uint16, v=b'', opts={'subcmd': <MANUFACTURER_ACCESS_CMD_BQ30.BlackBoxRecorderReset: 42>}  
+> Store ManufacturerAccess.BlackBoxRecorderR eset: 00 WORD=0x2a  
+> Write ManufacturerAccess: 00 WORD=0x2a  
+> MA.BlackBoxRecorderReset:	trigger	SUCCESS	Trigger switch write accepted
+
+**LifetimeDataReset**  
+> dario@MotorolaG10:~/dji-firmware-tools $ python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose trigger ManufacturerAccess.LifetimeDataReset  
+> Opening smbus:1  
+> Importing comm_sbs_chips/BQ30z554.py  
+> Writing write_word_subcommand command at addr=0xb, cmd=0x0, type=uint16, v=b'', opts={'subcmd': <MANUFACTURER_ACCESS_CMD_BQ30.LifetimeDataReset: 40>}  
+> Store ManufacturerAccess.LifetimeDataReset: 00 WORD=0x28  
+> Write ManufacturerAccess: 00 WORD=0x28  
+> MA.LifetimeDataReset:	trigger	SUCCESS	Trigger switch write accepted  
+
+Before call the last DeviceReset i want to see the list of write to be sure to have seen everything  
+**AtRate**:The AtRate value used in calculations. First half of a two-function call-set used to set the AtRate value used in calculations made by the AtRateTimeToFull(), AtRateTimeToEmpty(), and AtRateOK() functions. The AtRate value may be expressed in either current (mA) or power (10mW) depending on the setting of the BatteryMode()'s CAPACITY_MODE bit.  
+**BatteryMode**: Battery modes and capabilities. Selects the various battery operational modes and reports the battery’s capabilities, modes, and flags minor conditions requiring attention.    
+**FullChargeCapacity**:Predicted pack capacity when it is fully charged. The value is expressed in either current (mAh at a C/5 discharge rate) or power (10mWh at a P/5 discharge rate) depending on the setting of the BatteryMode()'s CAPACITY_MODE bit.  
+**ManufacturerInfo**: Manufacturer Info values. The values from ManufacturerData().  
+**ManufacturerInput**: Either Authentication or ManufacturerInfo, depending on use. Direct R/W of this command isn't very useful, it is to be used in compound commands.  
+**RemainingCapacity**: Predicted remaining battery capacity. The capacity value is expressed in either current (mAh at a C/5 discharge rate) or power (10mWh at a P/5 discharge rate) depending on the setting of the BatteryMode()'s CAPACITY_MODE bit.  
+**RemainingCapacityAlarm**: Low Capacity alarm threshold value. Whenever the RemainingCapacity() falls below the Low Capacity value, the Smart Battery sends AlarmWarning() messages to the SMBus Host with the REMAINING_CAPACITY_ALARM bit set. A Low Capacity value of 0 disables this alarm. Unit depends on BatteryMode()'s CAPACITY_MODE bit.   
+**RemainingTimeAlarm**: Remaining Time alarm value. Whenever the AverageTimeToEmpty() falls below the Remaining Time value, the Smart Battery sends AlarmWarning() messages to the SMBus Host with the REMAINING_TIME_ALARM bit set. A Remaining Time value of 0 effectively disables this alarm.  
+
 
 
