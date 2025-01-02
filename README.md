@@ -44,11 +44,11 @@ With this incredible tool i managed to read my battery status, unseal the device
 After unsealing the device and obtaining the full Access i started to check the errors present and try to delete them, i run  
 > python3.9 comm_sbs_bqctrl.py -vvv --bus "smbus:1" --chip BQ30z55 --dev_address 0xb --verbose monitor BQStatusBitsMA
 
-And i have:  
-Safety Alert Bits: No error
-Safety Status Bits: No error
-Permanent Fail Alert Bits: No error
-Permanent Fail Status Bits: 0x04 -> Error on [CUDEP] Copper Deposition
+And i got:    
+:white_check_mark: Safety Alert Bits: No error  
+:white_check_mark: Safety Status Bits: No error  
+:white_check_mark: Permanent Fail Alert Bits: No error  
+:x: Permanent Fail Status Bits: 0x04 -> Error on [CUDEP] Copper Deposition  
 
 
 
