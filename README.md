@@ -79,28 +79,28 @@ The command succeed, check again BQStatusBitMA and saBoooooom!
 The trigger list of available trigger is, i will call --explain on each:  
 **ManufacturerAccess.BlackBoxRecorder**: Enables/disables Black box recorder function. Toggle switch which allows to control the recorder for ease of manufacturing.
 **ManufacturerAccess.BlackBoxRecorderReset**: Resets the black box recorder data in data flash. Toggle switch which allows to control the Black Box Recorder data in DF for ease of manufacturing.
-**ManufacturerAccess.CALMode**
-**ManufacturerAccess.ChargeFET**
-**ManufacturerAccess.DeviceReset**
-**ManufacturerAccess.DischargeFET**
-**ManufacturerAccess.ExitCalibOutputMode**
-**ManufacturerAccess.FETControl**
-**ManufacturerAccess.Fuse**
-**ManufacturerAccess.FuseToggle**
-**ManufacturerAccess.Gauging**
-**ManufacturerAccess.LEDDisplayOn**
-**ManufacturerAccess.LEDEnable**
-**ManufacturerAccess.LEDToggle**
-**ManufacturerAccess.LifetimeDataCollection**
-**ManufacturerAccess.LifetimeDataReset**
-**ManufacturerAccess.PermanentFailDataReset**
-**ManufacturerAccess.PermanentFailure**
-**ManufacturerAccess.PreChargeFET**
-**ManufacturerAccess.ROMMode**
-**ManufacturerAccess.SHIPMode**
-**ManufacturerAccess.SealDevice**
-**ManufacturerAccess.ShutdownMode**
-**ManufacturerAccess.SleepMode**
+**ManufacturerAccess.CALMode**: Outputs the raw ADC and CC data. Output of the raw data on ManufacturingData(), is controllable with 0xF081 and 0xF082 on ManufacturerAccess(). Toggle switch - write the value again to disable the output.
+**ManufacturerAccess.ChargeFET**: Turns on/off CHG FET drive function. Toggle switch which allows to control the Charge FET for ease of testing during manufacturing.
+**ManufacturerAccess.DeviceReset**: Resets the device. This counts as Full Device Reset as well as AFE Reset, the terms used in chip reference doc.
+**ManufacturerAccess.DischargeFET**: Turns on/off DSG FET drive function. Toggle switch which allows to control the Discharge FET for ease of testing during manufacturing.
+**ManufacturerAccess.ExitCalibOutputMode**: Exit Calibration Output Mode. Stop output of ADC or CC data on ManufacturerData() and return to NORMAL data acquisition mode.
+**ManufacturerAccess.FETControl**: Control of the CHG, DSG, and PCHG FET. Toggle switch which allows to either control the 3 FETs by the firmware, or disable automation and allow manual control.
+**ManufacturerAccess.Fuse**: Enables/disables firmware fuse toggle function. Toggle switch which allows to control the fuse for ease of manufacturing.
+**ManufacturerAccess.FuseToggle**: Activate/deactivate FUSE pin. Toggle switch which allows to control the FUSE for ease of testing during manufacturing.
+**ManufacturerAccess.Gauging**: Enable/disable the gauging function. Toggle switch which allows to control the Gauge for ease of testing during manufacturing.
+**ManufacturerAccess.LEDDisplayOn**: Simulates low-high-low detection on the /DISP pin. Toggle switch which allows to control the /DISP pin for ease of manufacturing.
+**ManufacturerAccess.LEDEnable**: Enables/disables LED Display function. Toggle switch which allows to control the LEDs for ease of manufacturing.
+**ManufacturerAccess.LEDToggle**: Activate/deactivate configured LEDs. Toggle switch which allows to control the LEDs for ease of testing during manufacturing.
+**ManufacturerAccess.LifetimeDataCollection**: Enables/disables Lifetime data collection. Toggle switch which allows to control whether Lifetime Data collection feature is working.
+**ManufacturerAccess.LifetimeDataReset**: Resets Lifetime data data in data flash. Clears the flags for ease of manufacturing.
+**ManufacturerAccess.PermanentFailDataReset**: Resets PF data in data flash. Clears permanent fail flags for ease of manufacturing. If the condition which caused the flag to appear is still tripped, the flag will get set again.
+**ManufacturerAccess.PermanentFailure**: Enables/disables Permanent Failure. Toggle switch which allows to control when PF can be triggered for ease of manufacturing.
+**ManufacturerAccess.PreChargeFET**: Turns on/off Pre-CHG FET drive function. Toggle switch which allows to control the FUSE for ease of testing during manufacturing.
+**ManufacturerAccess.ROMMode**: Enables the ROM mode for IF update. On this command, device goes to ROM mode ready for re-programming firmware in Instruction Flash. Thit is often called BootROM mode. Use 0x08 to ManufacturerAccess() to return.
+**ManufacturerAccess.SHIPMode**: Low power SHIP Mode with no physical measurements. Enters a low power mode with no voltage, current, and temperature measurements, FETs are turned off, and the MCU is in a halt state. The device will return to NORMAL mode on SBS communication detection.
+**ManufacturerAccess.SealDevice**: Seals the device, disabling some commands. Certain SBS commands and access to DF are disabled in sealed device.
+**ManufacturerAccess.ShutdownMode**: SHUTDOWN mode with reduced power consumption. The device can be sent to this mode before shipping. The device will wake up when a voltage is applied to PACK.
+**ManufacturerAccess.SleepMode**: Send device to sleep if conditions are met. Some of wake conditions are: Current exceeds Sleep Current, WakeComparator trips, SafetyAlert() or PFAlert() flags are set.
 
-
+Lots of command, the most interesting are: BlackBoxRecorderReset, DeviceReset, LifetimeDataReset, PermanentFailDataReset (already tried). 
 
