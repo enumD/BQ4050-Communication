@@ -55,7 +55,7 @@ And i got:
 :x: Charging Status Bit and Gauging Status bit  
 ![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/chargingstatus.png)  
 
-:x: Manufacturing Status Bit  
+:white_check_mark: Manufacturing Status Bit  
 ![Manufacture Acess](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/manustatusbiyt.png)  
 
 The battery status is in permanent fail, so i want to try to reset some errors and see what happen; to do this i run "trigger-list" to list all possible trigger options: PermanentFailDataReset seems good, let's try if it works:    
