@@ -102,5 +102,10 @@ The trigger list of available trigger:
 **ManufacturerAccess.SleepMode**: Send device to sleep if conditions are met. Some of wake conditions are: Current exceeds Sleep Current, WakeComparator trips, SafetyAlert() or PFAlert() flags are set.  
 
 Lots of command, the most interesting are: BlackBoxRecorderReset, DeviceReset, LifetimeDataReset, PermanentFailDataReset (already tried). Lets see what the documentation says about that:  
-**Black Box Recorder Reset**: 
+**Black Box Recorder Reset**: Just reset the black box recording, usefull to separate old problems from new.  
+**ManufacturerAccess.DeviceReset**: documentation do not add usefull info, i will give it a try.  
+**ManufacturerAccess.LifetimeDataReset**: I will run this to separate old problems from new and to set cyclecount to zero  
+Ok lets run these commands and see what happen:  
+
+
 
