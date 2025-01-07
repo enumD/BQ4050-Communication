@@ -143,10 +143,9 @@ When i read this value (16bit) it reports:
 
 Particulary i wish to change Charge-controller_enabled (bit 8 = 1) and charger-mode (Bit 14 to 0). Maybe before trying to change these values manually it's better if i try the reset and see what happen.  
 
-I don't want to send the reset device command, i cleared all the error and failure flags but cannot change: > CHARGE_CONTROLLER_ENABLED:	0=Disabled	[CC]	Battery pack's internal charge controller state  
-Even if BatteryNMode is in write list, but i don't understand how to format value data
-  
-
+i cleared all the error and failure and now sent the reset trigger.  
+Everything seems okay, no error, no alarm no fail bur battery still don't have tension on pinout buttons. Must be something phisical. I tested the fuse and i have tension on one pin and nothing on the other, fuse must be blown. I don't have a microscope and replacing the fuse isn't easy and i need my battery back.  
+i melt some tin on it, plugged the battery and it works :) finally . I will try to replace the fuse in the future
 
 
 
