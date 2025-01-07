@@ -139,12 +139,7 @@ Before call the last DeviceReset i want to see the list of write to be sure to h
 **RemainingTimeAlarm**: Remaining Time alarm value. Whenever the AverageTimeToEmpty() falls below the Remaining Time value, the Smart Battery sends AlarmWarning() messages to the SMBus Host with the REMAINING_TIME_ALARM bit set. A Remaining Time value of 0 effectively disables this alarm.  
 
 **Battery Mode**  
-When i read this value (16bit) it reports: 
-![Battery Mode png](https://github.com/enumD/BQ4050-Communication/blob/main/pictures/BatteryMode_datasheet.png)  
-
-Particulary i wish to change Charge-controller_enabled (bit 8 = 1) and charger-mode (Bit 14 to 0). Maybe before trying to change these values manually it's better if i try the reset and see what happen.  
-
-i cleared all the error and failure and now sent the reset trigger.  
+I cleared all the error and failure and now sent the reset trigger.  
 Everything seems okay, no error, no alarm no fail bur battery still don't have tension on pinout buttons. Must be something phisical. I tested the fuse and i have tension on one pin and nothing on the other, fuse must be blown. I don't have a microscope and replacing the fuse isn't easy and i need my battery back.  
 i melt some tin on it, plugged the battery and it works :) finally . I will try to replace the fuse in the future
 
