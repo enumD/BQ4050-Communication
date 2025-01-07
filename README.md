@@ -13,7 +13,8 @@ So i decided to try with the bms attached to the laptop and boom i got 2 devices
 
 i tried as a dumb to read and write from these devices and after a write on device 0x08 it disappear and never come back, now i have only 0x09 and it seems to receive only read (i2cget commands).
 
-After this stupid scenario of writing nonsense bytes i understand that i would have to read at least the component datasheet and there it is.
+after some time spent i undetstand that these two devices are the laptop controller, connecting the raspberry to the laptop without bms shows this two devices. dead end.  
+i start to study the datasheet of the  components.
 
 ## BQ4050 
 Here are some utilities  
@@ -33,7 +34,7 @@ To try to UNSEAL the chip with the default password send this commands:
 These seems the same procedure written on the datasheet of the Bq4050.
 
 # BQ30z55
-I've tried to see my device under i2c but nothing appear, the device is gone after a dump write and don't want to come back. I had another hp old laptop (Envy 15 i think) where the battery doesn't have the same size but has the same connector. I tear down it and found a bms with the BQ30z55 chip on it; connect data, clock and gnd a launch a i2cdetect: Nothing, no device!
+I've tried to see my device under i2c but nothing appear, the device seems dead. I had another hp old laptop (Envy 15 i think) where the battery doesn't have the same size but has the same connector. I tear down it and found a bms with the BQ30z55 chip on it; connect data, clock and gnd a launch a i2cdetect: Nothing, no device!
 I've struggles two days reading [BQ30z55 Technical Manual](https://media.digikey.com/pdf/Data%20Sheets/Texas%20Instruments%20PDFs/BQ30Z50,55-R1_TechRef.pdf) and started to check the chip pinout to see if something happen, at one point a also make a small short circuit between first cell ground and first cell positive...i was like "Oh fuck! i bricked another bms fuck" but when i connected it to the raspberry...TADHAAAAA! device 0x0B found!  
 I tried to read some bytes with i2cget and everything worked fine, so decided to give a try to [DjI Firmware Tools](https://github.com/o-gs/dji-firmware-tools) where this great guy develop an incredible tools for battery management: [comm_sbs_bqctrl](https://github.com/o-gs/dji-firmware-tools/blob/master/comm_sbs_bqctrl.py).  
 With this incredible tool i managed to read my battery status, unseal the device and gain Full Access to reset the fail and error and restore the battery:  
